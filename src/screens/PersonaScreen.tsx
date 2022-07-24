@@ -2,16 +2,24 @@ import { Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { styles } from '../theme/appTheme';
 import { StackScreenProps } from '@react-navigation/stack';
+import { RootStackParams } from '../navigator/StackNavigator';
 
-interface Props extends StackScreenProps<any, any>{}
+// interface RouteParams {
+//     id: number;
+//     name: string;
+// }
+
+interface Props extends StackScreenProps<RootStackParams, 'PersonaScreen'>{}
+
 
 
 export const PersonaScreen = ({navigation, route}: Props) => {
-    const params = route.params;
+    const params = route.params
+    // const params = route.params as RouteParams
 
     useEffect(() => {
       navigation.setOptions({
-        title: params!.name
+        title: params.name
       })
     }, [])
     

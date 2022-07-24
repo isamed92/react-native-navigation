@@ -2,7 +2,15 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Page1Screen, Page2Screen, Page3Screen, PersonaScreen } from '../screens';
 
-const Stack = createStackNavigator();
+export type RootStackParams = {
+  Page1Screen: undefined,
+  Page2Screen: undefined,
+  Page3Screen: undefined,
+  PersonaScreen: {id: number, name: string},
+}
+
+
+const Stack = createStackNavigator<RootStackParams>();
 
 export const StackNavigator = () => {
   return (
