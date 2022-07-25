@@ -7,11 +7,13 @@ import {Platform, Text} from 'react-native';
 
 
 
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { TopTabNavigator } from './TopTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 export const Tabs = () => {
   return Platform.OS === 'ios' ? <TabsIOS/> : <TabsAndroid/>
 }
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { TopTabNavigator } from './TopTabNavigator';
 
 const BottomTabAndroid = createMaterialBottomTabNavigator();
 
@@ -26,16 +28,17 @@ export const TabsAndroid = () => {
 
           switch (route.name) {
             case 'Tab1Screen':
-              iconName= 'T1'
+              iconName= 'bug-outline'
               break;
             case 'TopTabNavigator':
-              iconName= 'T2'
+              iconName= 'build-outline'
               break;
             case 'StackNavigator':
-              iconName= 'ST'
+              iconName= 'bandage-outline'
               break;
           }
-          return <Text style={{color}}>{iconName}</Text>
+          return <Icon name={iconName} size={20} color='white' />
+
         },
       })
     
@@ -86,16 +89,16 @@ export const TabsIOS = () => {
 
           switch (route.name) {
             case 'Tab1Screen':
-              iconName= 'T1'
+              iconName= 'at-outline'
               break;
             case 'TopTabNavigator':
-              iconName= 'T2'
+              iconName= 'battery-charging-outline'
               break;
             case 'StackNavigator':
-              iconName= 'ST'
+              iconName= 'camera-outline'
               break;
           }
-          return <Text style={{color}}>{iconName}</Text>
+          return <Icon name={iconName} size={20} color={color} />
         }
       })}>
       {/* <Tab.Screen name="Tab1Screen" options={{title: 'Tab 1', tabBarIcon: (props) => <Text style={{color: props.color}} >T1</Text>}} component={Tab1Screen} /> */}

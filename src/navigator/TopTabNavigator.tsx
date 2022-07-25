@@ -4,6 +4,7 @@ import { LogBox, Text } from 'react-native';
 import { AlbumsScreen, ChatScreen, ContactsScreen } from '../screens';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors } from '../theme/appTheme';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 LogBox.ignoreLogs(['Sending'])
 
@@ -36,16 +37,16 @@ export const TopTabNavigator = () => {
   
             switch (route.name) {
               case 'Chat':
-                iconName= 'CH'
+                iconName= 'at-outline'
                 break;
               case 'Contacts':
-                iconName= 'CO'
+                iconName= 'bug-outline'
                 break;
               case 'Albums':
-                iconName= 'AL'
+                iconName= 'leaf-outline'
                 break;
             }
-            return <Text style={{color}}>{iconName}</Text>
+            return <Icon name={iconName} size={20} style={{color}} />
           },
       })}
     

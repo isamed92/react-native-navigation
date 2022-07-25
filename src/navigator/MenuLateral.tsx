@@ -15,6 +15,8 @@ import {
 import {styles} from '../theme/appTheme';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Tabs } from './Tabs';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 const Drawer = createDrawerNavigator();
 
@@ -58,9 +60,11 @@ const MenuInterno = ({navigation}: DrawerContentComponentProps) => {
       {/* opciones de menu */}
       <View style={styles.containerMenu}>
         <TouchableOpacity style={styles.menuBtn} onPress={() => navigation.navigate('Tabs')}>
+          <Icon style={styles.menuText} name='bug-outline' />
           <Text style={styles.menuText}>Navegacion</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuBtn} onPress={() => navigation.navigate('SettingsScreen')}>
+          <Icon style={styles.menuText} name='build-outline' />
           <Text style={styles.menuText}>Ajustes</Text>
         </TouchableOpacity>
       </View>
