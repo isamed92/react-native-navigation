@@ -1,23 +1,29 @@
-import { StyleSheet, Text } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text} from 'react-native';
+import React from 'react';
 import 'react-native-gesture-handler';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { StackNavigator } from './src/navigator/StackNavigator';
-import { MenuLateralBasico } from './src/navigator';
-import { MenuLateral } from './src/navigator/MenuLateral';
-
+import {NavigationContainer} from '@react-navigation/native';
+import {StackNavigator} from './src/navigator/StackNavigator';
+import {MenuLateralBasico} from './src/navigator';
+import {MenuLateral} from './src/navigator/MenuLateral';
+import {AuthProvider} from './src/context/AuthContext';
+import {FC} from 'react';
 
 const App = () => {
   return (
     <NavigationContainer>
-      {/* <StackNavigator/> */}
-      {/* <MenuLateralBasico/> */}
-      <MenuLateral/>
+      <AppState>
+        {/* <StackNavigator/> */}
+        {/* <MenuLateralBasico/> */}
+
+        <MenuLateral />
+      </AppState>
     </NavigationContainer>
-  )
-}
+  );
+};
 
-export default App
+const AppState = ({children}:{children: JSX.Element}) => {
+  return <AuthProvider>{children}</AuthProvider>;
+};
 
-const styles = StyleSheet.create({})
+export default App;
